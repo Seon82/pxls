@@ -29,7 +29,7 @@ class Palette:
     @staticmethod
     def hex_to_rgb(hex_num: str) -> Tuple[int, int, int]:
         """
-        Convert hex_num to a (R, G, B) tuple containing color components represented
+        Convert hex_num to a (R, G, B) tuple containing color components represented\
         by integers between 0 and 255.
 
         :param hex_num: A hex color string with no leading #

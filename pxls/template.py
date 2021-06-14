@@ -11,6 +11,7 @@ class Template(np.ndarray):
     """
 
     def __new__(cls, image: np.ndarray, x: int, y: int):
+        """Initialize new template."""
         obj = image.view(cls)
         obj.x = x
         obj.y = y
