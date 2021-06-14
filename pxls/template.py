@@ -6,6 +6,10 @@ import requests
 
 
 class Template(np.ndarray):
+    """
+    A class representing template images.
+    """
+
     def __new__(cls, image: np.ndarray, x: int, y: int):
         obj = image.view(cls)
         obj.x = x
@@ -51,11 +55,13 @@ class Template(np.ndarray):
         # The code below reshapes the image to capture these blocks.
         block_size = img_raw.shape[1] // metadata["width"]
         blocks = img_raw.reshape(
-            img_raw.shape[0] // block_size,
-            block_size,
-            img_raw.shape[1] // block_size,
-            block_size,
-            4,
+            (
+                img_raw.shape[0] // block_size,
+                block_size,
+                img_raw.shape[1] // block_size,
+                block_size,
+                4,
+            )
         ).swapaxes(1, 2)
         # block -> pixel conversion
         img = np.max(blocks, axis=(2, 3))

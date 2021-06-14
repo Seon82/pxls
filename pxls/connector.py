@@ -1,9 +1,9 @@
-from typing import Union, List, Tuple, Dict, Any, Optional
+from typing import Tuple, Dict, Any, Optional
 from dataclasses import dataclass
 import requests
 from requests.compat import urljoin
 import numpy as np
-from palette import Palette
+from .palette import Palette
 
 
 @dataclass

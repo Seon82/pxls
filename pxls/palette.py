@@ -1,4 +1,4 @@
-from typing import Union, List, Tuple, Dict, Any, Optional
+from typing import Union, List, Tuple, Dict
 from dataclasses import dataclass
 
 
@@ -10,11 +10,11 @@ class Palette:
 
     palette: List[Dict[str, str]]
 
-    def get_colors(self, format: str = "rgb") -> List[Union[str, List[int]]]:
+    def get_colors(self, formatting: str = "rgb") -> List[Union[str, List[int]]]:
         """
         Get a list of the colors contained in the palette.
 
-        :param format: The return format. Should be 'rgb', 'rgba', 'hex' or 'name'.
+        :param formatting: The return formatting. Should be 'rgb', 'rgba', 'hex' or 'name'.
         """
         mapper = {
             "name": lambda c: c["name"],
@@ -22,9 +22,9 @@ class Palette:
             "rgb": lambda c: self.hex_to_rgb(c["value"]),
             "rgba": lambda c: (*self.hex_to_rgb(c["value"]), 255),
         }
-        if format not in mapper:
-            raise ValueError(f"Invalid value for format: {format}")
-        return [mapper[format](c) for c in self.palette]
+        if formatting not in mapper:
+            raise ValueError(f"Invalid value for format: {formatting}")
+        return [mapper[formatting](c) for c in self.palette]
 
     @staticmethod
     def hex_to_rgb(hex_num: str) -> Tuple[int, int, int]:
