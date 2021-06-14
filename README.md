@@ -1,14 +1,14 @@
-# Pixls
+# Pxls
 
 This module is meant to provide functions to easily interface
 with [pxls.space](https://github.com/pxlsspace/Pxls) websites. This takes care of the low-level interactions with
 the website to let you focus on your code.
 
 ## Installation
-
+Run `pip install git+https://github.com/Seon82/pxls`.
 
 ## Examples
-```
+```python
 from pxls import PxlsConnector
 
 conn = PxlsConnector("https://pxls.space")
@@ -27,7 +27,7 @@ canvas_stats = conn.get_stats()
 ```
 
 Retrieve canvas image:
-```
+```python
 from pxls import PxlsConnector
 import matplotlib.pyplot as plt
 
@@ -36,7 +36,7 @@ plt.imshow(canvas_img)
 ```
 
 Retrieve template image:
-```
+```python
 from pxls import Template
 import matplotlib.pyplot as plt
 
@@ -45,8 +45,8 @@ template_img = Template.from_url(url)
 plt.imshow(template_img)
 ```
 
-Get uncompleted parts of a template:
-```
+Get template progress:
+```python
 template_height, template_width = template_img.shape[2:]
 
 # Crop canvas to the part matching the template:
