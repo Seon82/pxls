@@ -2,7 +2,7 @@
 
 This module is meant to provide functions to easily interface
 with [pxls.space](https://github.com/pxlsspace/Pxls) websites. This takes care of the low-level interactions with
-the website to let you focus on your code.
+the website to let you focus on higher-level logic.
 
 ## Installation
 Run `pip install git+https://github.com/Seon82/pxls`.
