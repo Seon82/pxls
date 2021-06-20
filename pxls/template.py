@@ -16,10 +16,12 @@ class Template(np.ndarray):
         obj.x = x
         obj.y = y
         return obj
-    
+
     def __array_finalize__(self, obj):
         """Numpy internals."""
-        if obj is None: return
+        if obj is None:
+            return
+        #pylint: disable=attribute-defined-outside-init
         self.x = getattr(obj, "x", None)
         self.y = getattr(obj, "y", None)
 
